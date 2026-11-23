@@ -1,3 +1,4 @@
+Arthur Kauan Barbosa da Silva
 # 🏗️ Mr. Construção — Sistema de Gestão de Materiais de Construção
 
 Aplicação front-end desenvolvida em **React + TypeScript** para gerenciamento completo (CRUD) de produtos, clientes com endereço de entrega e emissão de orçamentos/vendas da loja **Mr. Construção**.
