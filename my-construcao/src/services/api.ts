@@ -9,8 +9,7 @@ import type {
 } from '../types/types';
 
 // Alterne entre nuvem ou local conforme necessário:
-const BASE_URL = 'https://winnicius.com/tecinfo/labs/api-mr-construcao/api';
-// const BASE_URL = 'http://localhost:3000/api';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
 export const mrConstrucaoApi = createApi({
   reducerPath: 'mrConstrucaoApi',

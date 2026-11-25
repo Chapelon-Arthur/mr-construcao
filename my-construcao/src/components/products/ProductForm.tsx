@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ProdutoDTO } from '../../types/types';
+import { useState, useEffect, type FC, type ChangeEvent, type FormEvent, type CSSProperties } from 'react';
+import type { ProdutoDTO } from '../../types/types';
 
 interface ProductFormProps {
   mode: 'create' | 'edit';
@@ -19,7 +19,7 @@ const DEFAULT_VALUES: ProdutoDTO = {
   unidade: 'Unidade',
 };
 
-export const ProductForm: React.FC<ProductFormProps> = ({
+export const ProductForm: FC<ProductFormProps> = ({
   mode,
   initialValues,
   onSubmit,
@@ -34,7 +34,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     }
   }, [initialValues]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -42,7 +42,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     await onSubmit(formData);
   };
@@ -150,9 +150,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   );
 };
 
-const cardStyle: React.CSSProperties = { background: '#fff', padding: '24px', borderRadius: '10px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' };
-const gridStyle: React.CSSProperties = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' };
-const labelStyle: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '14px', fontWeight: 600, color: '#334155' };
-const inputStyle: React.CSSProperties = { padding: '10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '14px' };
-const primaryBtnStyle: React.CSSProperties = { padding: '10px 20px', backgroundColor: '#ea580c', color: '#fff', border: 'none', borderRadius: '6px', fontWeight: 700, cursor: 'pointer' };
-const secondaryBtnStyle: React.CSSProperties = { padding: '10px 20px', backgroundColor: '#e2e8f0', color: '#334155', border: 'none', borderRadius: '6px', fontWeight: 600, cursor: 'pointer' };
+const cardStyle: CSSProperties = { background: '#fff', padding: '24px', borderRadius: '10px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' };
+const gridStyle: CSSProperties = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' };
+const labelStyle: CSSProperties = { display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '14px', fontWeight: 600, color: '#334155' };
+const inputStyle: CSSProperties = { padding: '10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '14px' };
+const primaryBtnStyle: CSSProperties = { padding: '10px 20px', backgroundColor: '#ea580c', color: '#fff', border: 'none', borderRadius: '6px', fontWeight: 700, cursor: 'pointer' };
+const secondaryBtnStyle: CSSProperties = { padding: '10px 20px', backgroundColor: '#e2e8f0', color: '#334155', border: 'none', borderRadius: '6px', fontWeight: 600, cursor: 'pointer' };
